@@ -1,0 +1,58 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  email      String   @unique
+  password   String
+  role       Role     @default(USER)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  active     Boolean  @default(true)
+}
+
+model Resource {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  content     String
+  imageUrl    String?
+  archived    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
+model DiagnosticQuestion {
+  id       Int                @id @default(autoincrement())
+  text     String             // Énoncé de la question
+  order    Int                // Pour l’affichage dans l’ordre
+  options  DiagnosticOption[] // Liste des réponses possibles
+}
+
+model DiagnosticOption {
+  id             Int                 @id @default(autoincrement())
+  question       DiagnosticQuestion  @relation(fields: [questionId], references: [id])
+  questionId     Int
+  label          String              // Texte de l’option
+  points         Int                 // Points attribués pour cette réponse
+}
+
+model DiagnosticResult {
+  id        Int    @id @default(autoincrement())
+  minScore  Int    // Score minimum inclus
+  maxScore  Int    // Score maximum inclus
+  title     String // Titre du palier
+  content   String // Description / interprétation
+}
