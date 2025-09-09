@@ -17,6 +17,7 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false
+    
   },
   "include": ["src/**/*.ts"],    // ← ajoute cette ligne
  "exclude": ["node_modules", "dist"]  // ← et exclut les dossiers de build

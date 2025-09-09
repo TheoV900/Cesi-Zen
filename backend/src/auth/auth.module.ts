@@ -24,3 +24,7 @@ import { RolesGuard } from './roles.guard';
   exports: [AuthService],
 })
 export class AuthModule {}
+
+//Ce module NestJS configure Passport et JWT (avec expiration d’1h), 
+// enregistre AuthService, JwtStrategy et RolesGuard, expose AuthController et 
+// exporte AuthService.

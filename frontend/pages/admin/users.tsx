@@ -86,7 +86,7 @@ export default function AdminUsersPage() {
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="mt-1 block w-full bg-gray-100 dark:bg-gray-700 border rounded px-3 py-2"
+            className="mt-1 block w-full bg-gray-100 dark:bg-gray-700 border rounded px-3 py-2 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
             required
           />
         </label>
@@ -97,7 +97,7 @@ export default function AdminUsersPage() {
             type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
-            className="mt-1 block w-full bg-gray-100 dark:bg-gray-700 border rounded px-3 py-2"
+            className="mt-1 block w-full bg-gray-100 dark:bg-gray-700 border rounded px-3 py-2 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
             required
           />
         </label>
@@ -107,7 +107,7 @@ export default function AdminUsersPage() {
           <select
             value={role}
             onChange={e => setRole(e.target.value as any)}
-            className="mt-1 block w-full bg-gray-100 dark:bg-gray-700 border rounded px-3 py-2"
+            className="mt-1 block w-full bg-gray-100 dark:bg-gray-700 border rounded px-3 py-2 text-gray-900 dark:text-gray-100"
           >
             <option value="USER">Utilisateur</option>
             <option value="ADMIN">Administrateur</option>

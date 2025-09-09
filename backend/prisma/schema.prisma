@@ -33,7 +33,6 @@ model Resource {
   updatedAt   DateTime @updatedAt
 }
 
-
 model DiagnosticQuestion {
   id       Int                @id @default(autoincrement())
   text     String             // Énoncé de la question
@@ -56,3 +55,9 @@ model DiagnosticResult {
   title     String // Titre du palier
   content   String // Description / interprétation
 }
+
+
+
+//Ce fichier configure la connexion à une base PostgreSQL, génère un client 
+//Prisma et définit les modèles User, Resource, DiagnosticQuestion/Option et 
+//DiagnosticResult avec leurs champs, relations et suivi automatique des dates.
